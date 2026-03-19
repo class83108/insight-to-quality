@@ -1,10 +1,10 @@
 ---
-name: tdd-workflow
+name: ec:tdd-workflow
 description: >
   Python 專案的 TDD 紅綠燈流程，整合 Gherkin + pytest-bdd。強制按照 Red → Green → Refactor 順序執行，
   不可跳過任何階段。當使用者要開始實作功能、進入 TDD 的實作階段、或說「開始實作」時觸發。
-  Do NOT use for: 寫簡單 script、修 typo、改設定檔、還沒有 .feature 檔時（先用 feature-coverage）、
-  或 bug 修復時（用 debugging）。
+  Do NOT use for: 寫簡單 script、修 typo、改設定檔、還沒有 .feature 檔時（先用 ec:feature-coverage）、
+  或 bug 修復時（用 ec:debugging）。
 ---
 
 # TDD Workflow (Gherkin + pytest-bdd)
@@ -13,8 +13,8 @@ description: >
 
 ## 前置條件
 
-- .feature 檔已經存在且經過 feature-coverage skill 的覆蓋率確認
-- 如果 .feature 檔不存在，先停下來提醒使用者需要先完成 feature-coverage 分析
+- .feature 檔已經存在且經過 ec:feature-coverage skill 的覆蓋率確認
+- 如果 .feature 檔不存在，先停下來提醒使用者需要先完成 ec:feature-coverage 分析
 
 ## 測試與品質命令
 
@@ -60,7 +60,7 @@ description: >
 
 - 列出本次新增/修改的所有檔案
 - 確認測試最終狀態是綠的
-- 提醒使用者可以觸發 design-review 做設計品質檢視
+- 提醒使用者可以觸發 ec:design-review 做設計品質檢視
 
 ## Examples
 
@@ -73,7 +73,7 @@ description: >
 3. 跑測試 → 全部 FAIL → 展示紅燈輸出 → 「紅燈確認，要開始實作嗎？」
 4. 使用者確認 → 逐 scenario 實作，每完成一個跑一次測試
 5. 全部 PASS → 展示綠燈 → 跑 lint + type check → 修正問題 → 重跑測試確認綠
-6. 提醒可以做 design-review
+6. 提醒可以做 ec:design-review
 
 ### Example 2: 紅燈階段有測試意外通過
 
@@ -85,11 +85,11 @@ description: >
 
 實作過程中發現某個 scenario 的 Given 條件不合理。
 
-正確行為：停下來告訴使用者「我在實作 Scenario X 時發現 Given 條件可能需要調整，建議回到 feature-coverage 討論」，不要自己偷改 .feature 檔。
+正確行為：停下來告訴使用者「我在實作 Scenario X 時發現 Given 條件可能需要調整，建議回到 ec:feature-coverage 討論」，不要自己偷改 .feature 檔。
 
 ## 關鍵規則
 
 - **紅綠燈順序不可逆轉**：Red → Green → Refactor，絕對不能跳步
 - **不要一次寫完所有 production code** — 可以分 scenario 逐步實作
 - **每次測試結果都要展示給使用者**，不要只說「通過了」
-- **如果在 Green 階段發現 .feature 需要修改**，停下來告訴使用者，回到 feature-coverage 討論
+- **如果在 Green 階段發現 .feature 需要修改**，停下來告訴使用者，回到 ec:feature-coverage 討論

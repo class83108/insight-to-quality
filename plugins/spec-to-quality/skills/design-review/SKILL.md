@@ -1,11 +1,11 @@
 ---
-name: design-review
+name: ec:design-review
 description: >
   TDD green 之後的設計品質 review，教育導向。檢視程式碼的設計原則、職責分離、耦合方向等
   linter 抓不到的問題，以提問方式引導使用者思考，而非直接修改。
   當使用者完成 TDD green 階段、要做 code review、或說「review 一下」、「檢查設計」時觸發。
-  Do NOT use for: 單純看 code 什麼意思、學習語法、尚未完成 TDD green 時（先完成 tdd-workflow）、
-  或 bug 修復時（用 debugging）。
+  Do NOT use for: 單純看 code 什麼意思、學習語法、尚未完成 TDD green 時（先完成 ec:tdd-workflow）、
+  或 bug 修復時（用 ec:debugging）。
 ---
 
 # Design Review（設計品味檢視）

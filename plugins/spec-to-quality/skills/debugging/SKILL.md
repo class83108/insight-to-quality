@@ -1,5 +1,5 @@
 ---
-name: debugging
+name: ec:debugging
 description: >
   系統化除錯流程。遇到 bug、測試失敗、或非預期行為時，強制先收集證據、建立假說、驗證，
   而不是猜測性地修改 code。當測試失敗、出現錯誤訊息、或使用者回報 bug 時觸發。

@@ -1,10 +1,10 @@
 ---
-name: feature-coverage
+name: ec:feature-coverage
 description: >
   寫 .feature 檔之前的覆蓋率分析流程。強制在撰寫 Gherkin scenario 前，先對 6 類 scenario 類別
   逐一判斷「適用 / 不適用（附原因）」並等使用者確認。
   當使用者要開始寫 .feature 檔、定義測試情境、規劃 scenario、或說「覆蓋率分析」時觸發。
-  Do NOT use for: 已經有 .feature 檔要開始實作時（用 tdd-workflow）、修 bug 時、或單純討論需求時。
+  Do NOT use for: 已經有 .feature 檔要開始實作時（用 ec:tdd-workflow）、修 bug 時、或單純討論需求時。
 ---
 
 # Feature 覆蓋率分析
@@ -51,7 +51,7 @@ description: >
 
 ### Step 5: 進入 Gherkin 撰寫
 
-確認後，使用 gherkin skill 開始撰寫 .feature 檔。確保分析表中每個「適用」的類別都有對應的 Scenario。
+確認後，使用 ec:gherkin skill 開始撰寫 .feature 檔。確保分析表中每個「適用」的類別都有對應的 Scenario。
 
 ## Examples
 

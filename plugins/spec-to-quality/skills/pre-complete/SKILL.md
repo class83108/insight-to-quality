@@ -1,10 +1,10 @@
 ---
-name: pre-complete
+name: ec:pre-complete
 description: >
   完成宣告前的強制驗證 checklist。在說「完成」、commit、或建立 PR 之前，
   必須跑過所有驗證命令並確認輸出。防止「說完成但其實沒跑過驗證」的情況。
   當即將完成一個 feature、要 commit、要建立 PR、或使用者說「差不多了」時觸發。
-  Do NOT use for: 開發過程中的中間測試（那是 tdd-workflow 的一部分）、或單純想跑一下測試看狀態。
+  Do NOT use for: 開發過程中的中間測試（那是 ec:tdd-workflow 的一部分）、或單純想跑一下測試看狀態。
 ---
 
 # Pre-Complete Verification（完成前驗證）
@@ -29,7 +29,7 @@ description: >
 使用專案 CLAUDE.md 中定義的測試命令。
 
 - 必須全部 PASS
-- 如果有 FAIL → 停止，進入 debugging skill
+- 如果有 FAIL → 停止，進入 ec:debugging skill
 
 ### 2. Lint & Format
 

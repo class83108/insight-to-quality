@@ -1,11 +1,11 @@
 ---
-name: gherkin
+name: ec:gherkin
 description: >
   產生符合最佳實踐的 Gherkin .feature 功能規格文件。使用繁體中文撰寫，遵循 Feature / Rule / Scenario 結構。
   當使用者提到要建立功能規格、撰寫 .feature 檔、定義驗收條件、描述使用情境、或想用 Gherkin 語法記錄需求時，
   都應觸發此 skill。即使使用者只是說「幫我寫規格」、「整理這個功能的情境」、「定義 acceptance criteria」，
   也應使用此 skill。
-  Do NOT use for: 還沒做過覆蓋率分析時（先用 feature-coverage）、要開始實作測試時（用 tdd-workflow）、
+  Do NOT use for: 還沒做過覆蓋率分析時（先用 ec:feature-coverage）、要開始實作測試時（用 ec:tdd-workflow）、
   或修改既有 .feature 檔的小幅調整（直接改即可）。
 ---
 
@@ -26,7 +26,7 @@ description: >
 5. **業務規則**：有沒有需要遵守的規則或限制？這些規則會成為 Rule 的基礎
 6. **放置路徑**：確認 .feature 檔應放在哪裡（若專案有明確結構）
 
-如果使用者已經在對話中提供了足夠資訊（例如從 feature-coverage 分析銜接過來），可以減少提問，直接進入撰寫。
+如果使用者已經在對話中提供了足夠資訊（例如從 ec:feature-coverage 分析銜接過來），可以減少提問，直接進入撰寫。
 
 ### 第二步：撰寫 .feature 檔
 
@@ -122,7 +122,7 @@ When 使用者提交註冊表單
 
 ## Examples
 
-### Example 1: 從 feature-coverage 銜接過來
+### Example 1: 從 ec:feature-coverage 銜接過來
 
 使用者已完成覆蓋率分析，確認了 5 個適用類別。
 

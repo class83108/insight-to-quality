@@ -4,28 +4,31 @@
 
 ## Skill 執行順序
 
-```
-feature-coverage → gherkin → tdd-workflow → design-review → pre-complete
-                                                  ↑
-                                            debugging（任何階段可觸發）
+```mermaid
+flowchart LR
+    A[ec:feature-coverage] --> B[ec:gherkin]
+    B --> C[ec:tdd-workflow]
+    C --> D[ec:design-review]
+    D --> E[ec:pre-complete]
+    F[ec:debugging] -.-> |任何階段| A & B & C & D & E
 ```
 
 ## 規則
 
 - **不可跳步**：每個 skill 有前置條件，必須滿足才能進入下一個
 - **測試/lint/type check 命令**：一律參照專案 CLAUDE.md 的 Commands 區段，不要假設任何特定工具
-- **等待使用者確認**：feature-coverage 分析完、tdd-workflow 紅燈確認、都需要使用者明確同意才能繼續
-- **debugging 可在任何階段觸發**：遇到 bug 或測試失敗時，暫停當前流程進入 debugging
+- **等待使用者確認**：ec:feature-coverage 分析完、ec:tdd-workflow 紅燈確認、都需要使用者明確同意才能繼續
+- **ec:debugging 可在任何階段觸發**：遇到 bug 或測試失敗時，暫停當前流程進入 ec:debugging
 
 ## Skill 銜接說明
 
 | 從 | 到 | 銜接方式 |
 |----|-----|---------|
-| feature-coverage | gherkin | 覆蓋率分析確認後，直接觸發 gherkin skill 撰寫 .feature |
-| gherkin | tdd-workflow | .feature 撰寫完成後，提醒使用者可以開始實作 |
-| tdd-workflow | design-review | 綠燈 + refactor 完成後，提醒可以觸發 design-review |
-| design-review | pre-complete | review 完成後，如果要 commit/PR，觸發 pre-complete |
-| 任何階段 | debugging | 測試失敗或遇到 bug 時自動觸發 |
+| ec:feature-coverage | ec:gherkin | 覆蓋率分析確認後，直接觸發 ec:gherkin skill 撰寫 .feature |
+| ec:gherkin | ec:tdd-workflow | .feature 撰寫完成後，提醒使用者可以開始實作 |
+| ec:tdd-workflow | ec:design-review | 綠燈 + refactor 完成後，提醒可以觸發 ec:design-review |
+| ec:design-review | ec:pre-complete | review 完成後，如果要 commit/PR，觸發 ec:pre-complete |
+| 任何階段 | ec:debugging | 測試失敗或遇到 bug 時自動觸發 |
 
 ## 前置要求
 
