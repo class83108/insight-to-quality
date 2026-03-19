@@ -3,6 +3,9 @@
   "owner": {
     "name": "class83108"
   },
+  "metadata": {
+    "description": "Python TDD workflow skills — from spec coverage analysis to quality-gated code, minimizing information loss between requirements and implementation."
+  },
   "plugins": [
     {
       "name": "spec-to-quality",
