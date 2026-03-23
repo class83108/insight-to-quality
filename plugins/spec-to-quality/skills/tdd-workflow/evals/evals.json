@@ -38,6 +38,21 @@
         "等待使用者決定如何處理後才繼續"
       ],
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "feature 檔確認了，開始實作翻譯功能。openspec 的 spec.md 裡有 5 個 SHALL 語句，其中 SHALL 使用 xai_sdk.Client 呼叫 API、SHALL 從 response.usage 提取 token 數量。translation.feature 在 tests/features/ 裡面",
+      "expected_output": "在寫測試前先進入 Phase 0 Verification Ledger，列出每個 SHALL 的驗證歸屬與 mock 邊界規劃，展示 ledger 給使用者確認後才進入 Red 階段",
+      "expectations": [
+        "在寫任何測試之前，先進行 Verification Ledger（Phase 0）",
+        "從 spec 提取 SHALL 語句並列出清單",
+        "對每個 SHALL 規劃 mock 邊界，區分「可直接 unit test」和「需要整合測試」",
+        "檢查 Checkpoint A：mock 不能遮掉自己的邏輯（例如 xai_sdk.Client 的呼叫方式應被驗證，不能被 MagicMock 整個取代）",
+        "檢查 Checkpoint B：跨元件資料流的形狀是否有驗證",
+        "產出 verification.md 格式的 ledger，分為 unit test 覆蓋 / 需要整合測試 / 明確不測",
+        "展示 ledger 給使用者確認後，才進入 Phase 1 Red"
+      ],
+      "files": []
     }
   ]
 }
