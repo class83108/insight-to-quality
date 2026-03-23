@@ -41,6 +41,19 @@
         "不包含 # language: zh-TW 標記"
       ],
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "幫我寫使用者檔案上傳功能的 feature 規格，覆蓋率分析已確認 Happy path、Error paths、Input boundary 適用",
+      "expected_output": "一個 .feature 檔，Gherkin 關鍵字（Feature, Scenario, Given, When, Then, Rule, Background, And）全部使用英文，步驟描述和名稱使用繁體中文",
+      "expectations": [
+        "所有 Gherkin 關鍵字使用英文（Feature, Scenario, Given, When, Then, And, But, Rule, Background）",
+        "不使用中文關鍵字（功能、場景、假設、當、那麼）",
+        "Feature 名稱、Scenario 名稱、步驟描述使用繁體中文",
+        "不包含 # language: zh-TW 標記",
+        "涵蓋 Happy path 和 Error path 的 Scenario"
+      ],
+      "files": []
     }
   ]
 }
