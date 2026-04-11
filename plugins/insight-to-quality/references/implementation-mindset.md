@@ -105,6 +105,63 @@ intent within a single component. When they conflict, the dominant-ops anti-patt
 
 ---
 
+## Discovery Conflict Triage
+
+During implementation, you may encounter situations where the code fights the plan — a boundary
+feels wrong, a contract shape does not work, or a failure mode was not anticipated. Before
+escalating or going back to discovery, **triage by impact level** to determine where to start fixing.
+
+### The Four Levels
+
+| Level | Signal | Fix starting point | Example |
+|-------|--------|-------------------|---------|
+| **0 — Code only** | No test changes needed | Fix directly in code, commit | Rename, typo, formatting, internal refactor with identical behavior |
+| **1 — Spec implementation** | Tests or spec implementation details change, but contracts and boundaries are unaffected | Start from OpenSpec, adjust implementation approach, re-run TDD from Red | Algorithm change, different internal data structure, retry strategy tweak |
+| **2 — Contract or boundary** | The shape of data crossing a boundary needs to change, or a seam is in the wrong place | Start from SYSTEM_MAP — update Boundary Map, then cascade: feature plan → OpenSpec → TDD | Discovered that Component A needs data Component B does not provide; boundary splits or merges |
+| **3 — Goal or dominant-op** | The system's purpose or pressure ranking is wrong | Start from discovery source (goals.md or dominant-ops.md), then cascade through all downstream documents | Realized D2 is actually more critical than D1; discovered a missing goal |
+
+### How to Determine the Level
+
+Ask these questions in order — stop at the first "yes":
+
+1. **Does this change affect what the system must do or where the pressure lies?** → Level 3
+2. **Does this change affect the shape of data crossing a boundary, or move a boundary?** → Level 2
+3. **Does this change affect test expectations or spec requirements, but not contracts?** → Level 1
+4. **None of the above?** → Level 0
+
+### Cascade Rule
+
+Each level implies updating everything downstream:
+- Level 3: goals.md / dominant-ops.md → SYSTEM_MAP → feature plan → OpenSpec → TDD
+- Level 2: SYSTEM_MAP → feature plan → OpenSpec → TDD
+- Level 1: OpenSpec → TDD
+- Level 0: code only
+
+**Do not skip intermediate documents.** A Level 2 fix that updates SYSTEM_MAP but not the
+feature plan leaves the feature plan out of sync — the next person reading it will make
+decisions based on stale information.
+
+### When to Pause and Discuss
+
+Not every implementation difficulty is a discovery error. Before escalating to Level 2 or 3,
+verify that the friction is not caused by:
+- An implementation approach that can be adjusted (Level 1)
+- A misunderstanding of the existing contract (re-read before concluding it is wrong)
+- Complexity that a dominant-op justifies (check architect-mindset.md: "Respect earned complexity")
+
+If uncertain, surface the conflict to the user with the evidence and let them decide the level.
+
+### How Skills Use This Section
+
+**tdd-workflow**: When implementation hits a wall during Green phase, reference this triage
+to determine whether to adjust the approach (Level 0-1) or stop and escalate (Level 2-3).
+
+**design-review**: When Part 1 finds a violation, determine whether the violation indicates
+an implementation bug (fix the code) or a declaration that was wrong (triage the declaration
+fix using these levels).
+
+---
+
 ## Part 2: Structural Checks
 
 These properties do not require a prior declaration — they are evaluated during design-review

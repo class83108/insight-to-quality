@@ -44,6 +44,7 @@ Read the following documents and extract key information:
 - `Current State.Gaps`: the known gap list (which gaps are already partially covered by feature plans)
 - `Current State.In-flight`: work currently in progress
 - `Boundary Map`: contract status for each boundary
+- `Lessons`: pitfalls from completed features that may affect the candidates being planned — extract entries related to the boundaries or components this feature will touch and present them to the user during Step 2
 
 **Align reports** → extract contract gaps (align-internals) and interface gaps (align-surface)
 
@@ -74,6 +75,13 @@ Feature Candidates:
 1. [feature-name] — closes [gap description], serves G1, G2
 2. [feature-name] — continues task-queue.md (2 of 3), serves G1
 ...
+```
+
+If the SYSTEM_MAP Lessons section contains entries related to any candidate's boundaries or components, surface them:
+
+```
+Related lessons from previous features:
+- Candidate 1 touches Seam A: [one-line summary from Lessons] (link to details)
 ```
 
 Ask the user: "Which one should we plan first?"

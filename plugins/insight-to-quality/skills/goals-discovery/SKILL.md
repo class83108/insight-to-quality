@@ -24,6 +24,19 @@ Read `references/architect-mindset.md` before proceeding. The principles there �
 - **Non-goals are as valuable as goals.** They constrain the design space more effectively than goals do. Actively probe for them.
 - **Prefer fewer, sharper goals.** 8-12 well-defined goals beat 25 fuzzy ones. Each goal should survive the three quality tests.
 
+## Required Outputs
+
+Before declaring this skill complete, you MUST produce ALL of the following. Do not write goals.md or end the conversation until every item is checked:
+
+- [ ] `goals.md` with all five sections: Functional Goals, Non-Goals, NFRs, Constraints, Open Questions
+- [ ] Every goal has: Gx ID, STABLE/EVOLVING tag, strong verb (SHALL/MUST), and has passed the Three Quality Tests — show each test's result to the user explicitly
+- [ ] Every non-goal has: NGx ID and a "why" explanation that eliminates at least one design option
+- [ ] Every NFR is quantified (specific number + measurement method — not "fast" or "reliable")
+- [ ] Open Questions: if empty, explicitly justify why; an empty OQ section is a red flag, not a success
+- [ ] User has confirmed the final document
+
+**N/A Policy**: If a section has no content, write `(none identified — [reason])` rather than omitting it. Never leave a required section blank without explanation.
+
 ## Workflow
 
 ### Phase 1: Context Gathering
@@ -107,12 +120,14 @@ Probing questions:
 
 ### Phase 7: Review and Validate
 
-Before finalizing, do a full pass:
+**You MUST complete this checklist before writing goals.md.** Do not write the document before each item below is verified:
 
-1. **Traceability check**: Can every goal be independently verified? Can every non-goal be traced to a design decision it eliminates?
-2. **Completeness check**: Are there obvious system capabilities not covered by any goal?
-3. **Conflict check**: Do any goals contradict each other? Do any goals contradict constraints?
-4. **Level check**: Re-apply the "remove the number" test to every statement. Make sure nothing is at the wrong abstraction level.
+1. **Traceability check** — Can every goal be independently verified? Can every non-goal be traced to a design decision it eliminates? If not → revise before proceeding.
+2. **Completeness check** — Are there obvious system capabilities not covered by any goal? If yes → add a goal or explicitly add a non-goal explaining why it's excluded.
+3. **Conflict check** — Do any goals contradict each other? Do any goals contradict constraints? If yes → resolve the contradiction before proceeding.
+4. **Level check** — Re-apply all Three Quality Tests (Replacement, Two-Design, Six-Month) to every goal. Present each test's result to the user — do not do this silently. If any goal fails a test → revise it.
+
+If any item fails → address it first. Do not write goals.md until all four pass.
 
 ## Output Shape
 

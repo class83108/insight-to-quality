@@ -39,7 +39,9 @@ This information is used directly in Step 2 for mock boundary planning. No need 
 
 #### Step 1: Extract the SHALL List
 
-From the OpenSpec spec.md, extract all SHALL / MUST statements. If there is no OpenSpec, infer the behaviors to verify from the Then steps in the .feature file.
+From the OpenSpec spec.md, extract all SHALL / MUST statements.
+
+**If there is no OpenSpec**: infer behaviors from the Then steps in the .feature file. Explicitly note in the ledger header: `SHALLs inferred from .feature file (no OpenSpec)` — this makes the inference visible and auditable. Be aware that Then-step inference may miss behavioral requirements not captured as scenarios; flag any gaps you notice.
 
 #### Step 2: Plan Mock Boundaries
 
@@ -76,6 +78,8 @@ Conversation display format:
 
 ## Unit Test Coverage
 - SHALL xxx → mock boundary: mock [external dependency], verify [own logic]
+  - Checkpoint A: mocks [external service name], not own logic ✓
+  - Checkpoint B: [producer output type] matches [consumer expected input type] ✓ / gap: [description if mismatch]
 
 ## Needs Integration Test
 - SHALL xxx

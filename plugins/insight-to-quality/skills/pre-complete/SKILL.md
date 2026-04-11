@@ -60,6 +60,8 @@ git status
 
 ### 5. OpenSpec Status (if used)
 
+**If the project does not use OpenSpec**: mark this step as `N/A — no OpenSpec` in the verification table and proceed to step 5b. Do not skip silently.
+
 - Are all tasks in the current change marked complete?
 - If there are incomplete tasks, are they intentionally left or an oversight?
 - **Delta Spec Sync**: Have the current change's delta specs been synced to the `openspec/specs/` main spec?

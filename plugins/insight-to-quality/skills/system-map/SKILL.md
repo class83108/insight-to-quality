@@ -23,6 +23,19 @@ Read `references/architect-mindset.md` before proceeding, especially Document Le
 - **This is a living document.** Unlike goals.md and dominant-ops.md (which are mostly write-once), SYSTEM_MAP.md is updated with every significant change. Design it for maintainability, not completeness.
 - **Boundaries are the most valuable part.** Developers rarely ask "what components exist?" — they ask "if I change X, what else breaks?" The Boundary Map and Change Protocol answer this question directly.
 
+## Required Outputs
+
+Before declaring this skill complete, you MUST produce ALL of the following. Do not write SYSTEM_MAP.md before every item is checked:
+
+- [ ] System Overview (3–5 lines)
+- [ ] Component Map: table + Mermaid diagram — **the Mermaid diagram is required, not optional**
+- [ ] Boundary Map: at least 2 seams, each with direction, contract type, Dx reference, and change impact
+- [ ] Current State section (even if mostly gaps — write what is known; do not omit for new projects)
+- [ ] Change Protocol covering all 4 types
+- [ ] Phase 7 validation checklist completed (all three checks must pass before writing the document)
+
+**N/A Policy**: Sections that don't yet have content (e.g., Lessons on first creation) must contain a comment explaining why: `<!-- Empty at initial creation — populated by ec:design-review as features are completed -->`. Never silently omit a section.
+
 ## Prerequisites
 
 - **goals.md must exist** — provides the Gx IDs and system purpose
@@ -133,7 +146,17 @@ Track project progress at a high level:
 
 This section is updated frequently — keep it scannable.
 
-### Phase 5: Change Protocol
+### Phase 5: Lessons
+
+A lightweight section that captures implementation pitfalls relevant to future work touching the same boundary or component. This section is **not written during initial SYSTEM_MAP creation** — it is populated incrementally by ec:design-review's Lessons Capture step as features are completed.
+
+Each entry is a one-line summary with a link to the detailed record in the OpenSpec change's decisions. SYSTEM_MAP is the navigator; the OpenSpec change is the source of truth.
+
+**What belongs here**: Mid-size pitfalls that would affect someone working on the same boundary or component in the future. Examples: a contract needing unexpected nullable handling, an anti-pattern that was harder to obey than expected, a technical limitation that forced a design compromise.
+
+**What does NOT belong here**: Small pitfalls local to a single change (stay in OpenSpec decisions), or large discoveries that trigger a discovery revision (handled by the Discovery Conflict Triage in implementation-mindset.md).
+
+### Phase 6: Change Protocol
 
 This is the section developers and AI agents consult most. Define what to do when something changes, organized by impact radius.
 
@@ -170,13 +193,15 @@ When adding a new component to the system:
 
 **For each type, the key question is: "What else do I need to touch?"** The Change Protocol answers this before the developer starts coding, preventing "changed A, forgot to update B" problems.
 
-### Phase 6: Review and Validate
+### Phase 7: Review and Validate
 
-Before finalizing:
+**You MUST complete all three checks before writing SYSTEM_MAP.md.** Present each result to the user before proceeding.
 
-1. **Navigation test**: Pick a random goal from goals.md. Can you trace it through the Component Map and Boundary Map to the relevant source files within 3 clicks? If not, the map has gaps.
-2. **Change simulation**: Pick a recent change (or a likely future change). Walk through the Change Protocol. Does it tell you everything you need to know? If not, refine the protocol.
-3. **Newcomer test**: Could a developer who has never seen this codebase use SYSTEM_MAP.md to orient themselves in under 5 minutes?
+1. **Navigation test** — Pick a random goal from goals.md. Trace it through the Component Map and Boundary Map to the relevant source files. Can you do this within 3 steps? If not → identify and fill the gap before writing.
+2. **Change simulation** — Pick a likely future change (e.g., "swap storage implementation", "add a new CLI command"). Walk through the Change Protocol. Does it tell the developer everything they need to touch? If not → refine the protocol before writing.
+3. **Newcomer test** — Could a developer who has never seen this codebase use SYSTEM_MAP.md to orient themselves in under 5 minutes? If not → simplify or restructure before writing.
+
+If any check reveals a problem → fix it first. Do not write SYSTEM_MAP.md until all three pass.
 
 ## Output Shape
 
@@ -211,6 +236,10 @@ Before finalizing:
 - **Phase**: [current phase description]
 - **In-flight**: [linked list of active work]
 - **Gaps**: [linked list of known gaps]
+
+## Lessons
+<!-- Populated by ec:design-review Lessons Capture; empty at initial creation -->
+- [Seam/Component]: [one-line summary] ([openspec/changes/xxx/decisions.md])
 
 ## Change Protocol
 [Type 1-4 as described above]

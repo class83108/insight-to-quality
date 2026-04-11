@@ -101,7 +101,29 @@ If violations are found, list them below the table:
 >
 > Why it's worth thinking about: (explanation of the design principle)
 
+### Part 3: Lessons Capture
+
+After completing structural checks, ask the user:
+
+> "During this feature's implementation, was there anything that discovery or the feature plan did not anticipate? For example: an anti-pattern that was harder to obey than expected, a boundary contract that needed adjustment, a technical limitation that forced a design compromise."
+
+If the user has nothing to share → record "No new lessons" and proceed.
+
+If the user shares a lesson:
+
+1. **Record it** in the OpenSpec change's decisions section (this is always done regardless of size)
+2. **Determine scope**: "Would this lesson affect someone working on the same boundary or component in the future?"
+   - **Yes** → Add a one-line entry to `SYSTEM_MAP.md`'s `## Lessons` section, linking to the OpenSpec change decisions as the source of truth
+   - **No** → The lesson stays in the OpenSpec change only
+
+Format for SYSTEM_MAP Lessons entry:
+```markdown
+- [Seam X / Component Y]: [one-line summary] (openspec/changes/{change-name}/decisions.md)
+```
+
 ### Summary
+
+**This summary table is required output — do not end the skill without producing it.**
 
 | Dimension | Status | Notes |
 |-----------|--------|-------|
@@ -111,7 +133,8 @@ If violations are found, list them below the table:
 | Dependency direction | OK / Issues found | |
 | Naming semantics | OK / Issues found | |
 | Testability | OK / Issues found | |
-| Consistency | OK / Issues found | |
+| Consistency | OK / Issues found / N/A — first feature (patterns established here become the project baseline) | |
+| Lessons capture | Captured / No new lessons | |
 
 ## Examples
 

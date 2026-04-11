@@ -19,6 +19,18 @@ You are a feature specification writing assistant. Your task is to help the user
 
 ## Workflow
 
+### Step 0: Coverage Cross-Reference Check
+
+**If this skill is triggered after ec:feature-coverage**, perform this check before writing anything:
+
+1. Retrieve the confirmed coverage analysis table from the conversation
+2. For every row marked **Applicable = Yes**, verify that at least one Scenario in the planned .feature file will correspond to the "Specific Scenario Direction" in that row
+3. If any Applicable row has no planned Scenario → flag it before writing: "The coverage analysis confirmed [category] is applicable with direction '[direction]', but no Scenario covers it. Add it or explain why it was dropped."
+
+**Do not proceed to Step 1 until every Applicable row is accounted for.**
+
+If this skill is triggered without a prior coverage analysis (user provides complete information directly), skip this step and proceed to Step 1.
+
 ### Step 1: Clarify Requirements
 
 Before writing, understand the feature the user wants to describe. Confirm the following in order (skip items already known):

@@ -16,6 +16,18 @@ You are entering the pre-writing step before any .feature file is created. You m
 
 **Before starting, read `references/implementation-mindset.md` Part 3** — it contains definitions for all 6 scenario categories, analysis entry points, and overlap rules.
 
+## Required Outputs
+
+Before handing off to ec:gherkin, you MUST produce ALL of the following. Do not write any Gherkin scenario until every item is confirmed:
+
+- [ ] Feature plan read (Step 0 complete): Error Handling Strategy, Anti-patterns with IDs, Boundary Rules all extracted
+- [ ] Coverage analysis table: all 6 categories addressed with `Yes` or `No + reason` — never blank
+- [ ] Gx completeness check (Step 3): every Gx from the feature plan's Serves field appears at least once in the table
+- [ ] User explicitly confirmed the table (Step 5)
+- [ ] Final sentence stated: "確認後，我將使用 ec:gherkin 撰寫 .feature 檔..."
+
+**N/A Policy**: `No` in the Applicable column must include a reason. "Not applicable" without a reason is not acceptable output.
+
 ## Workflow (follow strictly)
 
 ### Step 0: Read the Feature Plan

@@ -93,6 +93,8 @@ From the user journeys, derive the interface requirements:
 
 ### Phase 3: Infrastructure Planning
 
+**N/A guidance**: If the system is a single-process CLI or script with no background workers, long-lived connections, or server processes, state explicitly: "Infrastructure planning N/A — this is a single-process [CLI/script]; no worker topology or capacity planning required." Then skip to Phase 5. Do not silently omit this phase.
+
 Based on interface requirements and dominant-ops pressure:
 
 1. **Process topology**: What processes need to run? (web server, background workers, scheduler, cache)

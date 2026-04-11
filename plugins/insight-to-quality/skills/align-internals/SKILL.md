@@ -29,6 +29,19 @@ Read `references/architect-mindset.md` before proceeding, especially Traceabilit
 - **Dominant-ops shape the design.** D1/D2/D3 determine where to invest in schema quality, indexing, validation, and error handling. Non-dominant operations get minimal persistence design.
 - **Do not over-design.** If the framework provides good defaults (e.g., Django ORM, SQLAlchemy), use them. Do not add repository patterns, DAOs, or abstraction layers unless a boundary test justifies them.
 
+## Required Outputs
+
+Before declaring this skill complete, you MUST produce ALL of the following. Do not write contracts or end the session until every item is checked:
+
+- [ ] Mode declared at the start (design mode or verify mode)
+- [ ] Every seam from SYSTEM_MAP's Boundary Map explicitly assessed — do not skip or summarize
+- [ ] Contract status stated for each seam: `exists / defined / gap`
+- [ ] Storage seam contract assessed — what does the Domain layer expect from storage?
+- [ ] **Open Questions link**: If goals.md has Open Questions (OQ1, OQ2...) that affect contract design, explicitly discuss how each OQ constrains or defers the contract decision — do not leave OQs disconnected from the contracts
+- [ ] User confirmation of contract designs or gap report
+
+**N/A Policy**: If a seam has no contract yet (e.g., early design phase), write `gap — [reason why contract is deferred]`. Never silently omit a seam from the assessment.
+
 ## Prerequisites
 
 - **goals.md** — for Gx traceability and NFR requirements

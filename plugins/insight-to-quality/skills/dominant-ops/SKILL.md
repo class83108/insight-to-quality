@@ -23,6 +23,20 @@ Read `references/architect-mindset.md` before proceeding, especially the Dominan
 - **Demand real numbers.** "It takes a while" is not acceptable. "Cold start is ~45s, processing is ~3min per request" is. If real numbers do not exist yet, mark them as estimates and flag for measurement.
 - **Failure impact is the hidden dimension.** Users naturally think about frequency and cost. Your job is to keep asking "what happens if this fails silently?" — that is where the critical insights hide.
 
+## Required Outputs
+
+Before declaring this skill complete, you MUST produce ALL of the following:
+
+- [ ] Operations Inventory table — list ALL significant operations before selecting Top 3; do not skip directly to the ranking
+- [ ] 2–3 Dominant Operations with Dx IDs, ranked by criticality
+- [ ] At least one anti-pattern per Dx, each with an AP ID and an explicit Dx reference
+- [ ] Theory Limits table (one row per Dx) — **this section is not optional**; use `[estimate]` if real numbers don't exist
+- [ ] User has confirmed the final ranking
+
+**D3 threshold**: Before finalizing D3, check its criticality score. If it is ≤ 2 (Low on at least one dimension), ask: "Is this genuinely more critical than any unselected operation?" Having only D1 and D2 is acceptable — do not add D3 just to fill the slot.
+
+**N/A Policy**: Theory Limits are never N/A. If measurements don't exist, produce estimates marked `[estimate]` and flag for future validation.
+
 ## Prerequisites
 
 - **goals.md must exist** and be reviewed by the user
@@ -82,7 +96,9 @@ For each Dx, document:
 - **Design implications** (what this means for architecture — boundaries, contracts, error handling)
 - **Goal traceability** (which Gx it serves)
 
-**Hard rule**: No more than 3. If the user insists on 4+, ask: "If you had to sacrifice design attention on one of these to improve another, which would you drop?" That is your D4.
+**Hard rules**:
+- No more than 3. If the user insists on 4+, ask: "If you had to sacrifice design attention on one of these to improve another, which would you drop?" That is your D4.
+- No fewer than necessary. Before finalizing D3, verify: does its criticality score exceed 2? If not, ask the user "Is this genuinely more critical than any unselected operation?" If the answer is no, stop at D1 and D2. A two-operation list is better than a padded three.
 
 ### Phase 4: Anti-Patterns
 
@@ -97,6 +113,8 @@ For each anti-pattern:
 **The most important anti-pattern often comes from the user, not from you.** Ask: "What mistakes have you seen (or made) in similar systems?" Their experience-driven anti-patterns are more valuable than textbook ones.
 
 ### Phase 5: Theory Limits
+
+**This phase is required — do not skip it.** If real measurements do not exist, produce estimates marked `[estimate]` and flag them for future validation. An empty Theory Limits table is not acceptable output.
 
 For each dominant operation, establish the theoretical lower bound:
 
