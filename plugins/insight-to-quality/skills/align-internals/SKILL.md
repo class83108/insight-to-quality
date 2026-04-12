@@ -1,13 +1,13 @@
 ---
-name: ec:align-internals
+name: align-internals
 description: >
   Design or verify data-layer alignment — contracts and persistence shaped by discovery documents.
   In design mode (no existing code), guide the user through contract and schema design driven by
   goals, dominant-ops, and system map boundaries. In verify mode (existing code), audit whether
   contracts and persistence align with discovery documents and surface gaps.
   Requires goals.md, dominant-ops.md, and SYSTEM_MAP.md to exist.
-  Do NOT use for: defining goals (use ec:goals-discovery), analyzing pressure (use ec:dominant-ops),
-  mapping system structure (use ec:system-map), or designing user-facing interfaces (use ec:align-surface).
+  Do NOT use for: defining goals (use goals-discovery), analyzing pressure (use dominant-ops),
+  mapping system structure (use system-map), or designing user-facing interfaces (use align-surface).
 ---
 
 # Align Internals (Contracts and Persistence)

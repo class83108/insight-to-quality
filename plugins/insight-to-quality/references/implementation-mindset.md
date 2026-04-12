@@ -215,7 +215,7 @@ New code should follow the patterns already established in the project.
 ## Part 3: Feature Coverage Analysis
 
 The mapping from discovery and spec artifacts to the 6 scenario categories. Use this framework
-in **ec:feature-coverage** to determine what each category should contain and where to look for
+in **feature-coverage** to determine what each category should contain and where to look for
 the analysis starting point.
 
 ### The 6 Categories

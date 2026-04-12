@@ -1,12 +1,12 @@
 ---
-name: ec:tdd-workflow
+name: tdd-workflow
 description: >
   TDD red-green-refactor workflow for Python projects using Gherkin + pytest-bdd.
   Enforces strict Red → Green → Refactor order — no step may be skipped or merged.
   Trigger when the user wants to start implementing a feature, enter the TDD implementation
   phase, or says "start implementation".
   Do NOT use for: writing simple scripts, fixing typos, editing config files, when no
-  .feature file exists yet (use ec:feature-coverage first), or during bug fixes.
+  .feature file exists yet (use feature-coverage first), or during bug fixes.
 ---
 
 # TDD Workflow (Gherkin + pytest-bdd)
@@ -15,8 +15,8 @@ You are entering the TDD development workflow. This workflow is rigid — steps 
 
 ## Prerequisites
 
-- A .feature file must exist and have been through ec:feature-coverage coverage confirmation
-- If no .feature file exists, stop and remind the user to complete ec:feature-coverage analysis first
+- A .feature file must exist and have been through feature-coverage coverage confirmation
+- If no .feature file exists, stop and remind the user to complete feature-coverage analysis first
 
 ## Test and Quality Commands
 
@@ -155,7 +155,7 @@ Before starting implementation, read `references/implementation-mindset.md` Part
 
 - List all files added or modified in this session
 - Confirm the final test state is green
-- Remind the user that they can trigger ec:design-review for a design quality review
+- Remind the user that they can trigger design-review for a design quality review
 
 ## Examples
 
@@ -169,7 +169,7 @@ User says: "Feature file confirmed, start implementing user registration."
 4. Run tests → all FAIL → show red output → "Red confirmed. Ready to start implementation?"
 5. User confirms → implement scenario by scenario, run tests after each
 6. All PASS → show green → run lint + type check → fix issues → re-run tests to confirm green
-7. Remind user that ec:design-review is available
+7. Remind user that design-review is available
 
 ### Example 2: A Test Unexpectedly Passes in Red Phase
 
@@ -181,11 +181,11 @@ Correct behavior: Stop and tell the user "Scenario X unexpectedly passed. Possib
 
 During implementation, a Given condition in a scenario turns out to be unreasonable.
 
-Correct behavior: Stop and tell the user "While implementing Scenario X, I found the Given condition may need adjustment — recommend going back to ec:feature-coverage to discuss." Do not silently modify the .feature file.
+Correct behavior: Stop and tell the user "While implementing Scenario X, I found the Given condition may need adjustment — recommend going back to feature-coverage to discuss." Do not silently modify the .feature file.
 
 ## Key Rules
 
 - **Red-green-refactor order is irreversible**: Red → Green → Refactor — never skip
 - **Do not write all production code at once** — implement scenario by scenario
 - **Show every test result to the user** — do not just say "it passed"
-- **If a .feature modification is needed during Green phase**, stop and tell the user; go back to ec:feature-coverage to discuss
+- **If a .feature modification is needed during Green phase**, stop and tell the user; go back to feature-coverage to discuss

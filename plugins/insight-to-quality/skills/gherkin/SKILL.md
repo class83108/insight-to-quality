@@ -1,5 +1,5 @@
 ---
-name: ec:gherkin
+name: gherkin
 description: >
   Produces Gherkin .feature specification files following best practices.
   Gherkin keywords must be English (Feature/Scenario/Given/When/Then); step descriptions
@@ -8,8 +8,8 @@ description: >
   acceptance criteria, describe usage scenarios, or capture requirements in Gherkin syntax —
   including "write me a spec", "outline the scenarios for this feature", or "define
   acceptance criteria".
-  Do NOT use for: when coverage analysis has not yet been done (use ec:feature-coverage first),
-  when starting to implement tests (use ec:tdd-workflow), or for small edits to existing
+  Do NOT use for: when coverage analysis has not yet been done (use feature-coverage first),
+  when starting to implement tests (use tdd-workflow), or for small edits to existing
   .feature files (edit directly).
 ---
 
@@ -21,7 +21,7 @@ You are a feature specification writing assistant. Your task is to help the user
 
 ### Step 0: Coverage Cross-Reference Check
 
-**If this skill is triggered after ec:feature-coverage**, perform this check before writing anything:
+**If this skill is triggered after feature-coverage**, perform this check before writing anything:
 
 1. Retrieve the confirmed coverage analysis table from the conversation
 2. For every row marked **Applicable = Yes**, verify that at least one Scenario in the planned .feature file will correspond to the "Specific Scenario Direction" in that row
@@ -42,7 +42,7 @@ Before writing, understand the feature the user wants to describe. Confirm the f
 5. **Business rules**: Are there rules or constraints to follow? These become the basis for Rules.
 6. **File path**: Confirm where the .feature file should be placed (if the project has a defined structure)
 
-If the user has already provided sufficient information in the conversation (e.g., coming from an ec:feature-coverage analysis), skip questions and go directly to writing.
+If the user has already provided sufficient information in the conversation (e.g., coming from an feature-coverage analysis), skip questions and go directly to writing.
 
 ### Step 2: Write the .feature File
 
@@ -160,7 +160,7 @@ However, if the Feature itself describes a technical component (e.g., an API spe
 
 ## Examples
 
-### Example 1: Coming from ec:feature-coverage
+### Example 1: Coming from feature-coverage
 
 The user has completed coverage analysis and confirmed 5 applicable categories.
 

@@ -1,5 +1,5 @@
 ---
-name: ec:feature-planning
+name: feature-planning
 description: >
   The bridge step between discovery completion and OpenSpec creation. Reads the SYSTEM_MAP
   Current State and gaps, cross-references existing feature plans and OpenSpec changes,
@@ -7,9 +7,9 @@ description: >
   docs/feature-plans/{name}.md, and updates SYSTEM_MAP Current State.
   Trigger when discovery is complete, the user wants to decide what to implement next, or
   says "ready to start planning implementation".
-  Do NOT use for: when discovery is incomplete (complete ec:align-internals and ec:align-surface
+  Do NOT use for: when discovery is incomplete (complete align-internals and align-surface
   first), or when a feature plan already exists and implementation should begin directly
-  (use ec:feature-coverage).
+  (use feature-coverage).
 ---
 
 # Feature Planning
@@ -26,7 +26,7 @@ All of the following must exist before entering this skill:
 - `goals.md`
 - `dominant-ops.md`
 - `SYSTEM_MAP.md`
-- At least one align report (output from ec:align-internals or ec:align-surface)
+- At least one align report (output from align-internals or align-surface)
 
 If any are missing, stop and inform: "Feature planning requires complete discovery output. Starting implementation without discovery means every subsequent skill lacks a foundation. Please complete [missing skill] first."
 
@@ -157,8 +157,8 @@ Create `{feature-name}.md` under `docs/feature-plans/`, using kebab-case — the
 - [Data may only flow from A to B, not in reverse]
 
 ## Integration Test Gaps
-<!-- Filled in after ec:tdd-workflow Verification Ledger is complete; initially empty -->
-<!-- Records gaps that need integration tests but are deferred; ec:pre-complete reads this section -->
+<!-- Filled in after tdd-workflow Verification Ledger is complete; initially empty -->
+<!-- Records gaps that need integration tests but are deferred; pre-complete reads this section -->
 ```
 
 ### Step 7: Update SYSTEM_MAP Current State
@@ -185,7 +185,7 @@ After confirmation, inform:
 Next steps:
 1. Use `opsx:apply` to create the OpenSpec change; add `**Serves:** G1, G3` to the top of spec.md body
 2. Reference this feature plan's Error Handling Strategy in the Decisions section of design.md
-3. After OpenSpec is created, proceed to `ec:feature-coverage`"
+3. After OpenSpec is created, proceed to `feature-coverage`"
 
 ## Examples
 
@@ -222,4 +222,4 @@ Correct behavior: Stop and inform — "This finding reflects new understanding o
 
 Only goals.md exists, no SYSTEM_MAP.
 
-Correct behavior: "Feature planning requires complete discovery output. SYSTEM_MAP.md is missing — please complete ec:system-map, ec:align-internals, and ec:align-surface before returning to feature planning."
+Correct behavior: "Feature planning requires complete discovery output. SYSTEM_MAP.md is missing — please complete system-map, align-internals, and align-surface before returning to feature planning."

@@ -1,13 +1,13 @@
 ---
-name: ec:dominant-ops
+name: dominant-ops
 description: >
   Guide the creation of dominant-ops.md — identify where the system's pressure lies by analyzing
   operations through the lens of frequency, cost, and failure impact. Produces a ranked list of
   dominant operations, anti-patterns, and theory limits that directly shape downstream design.
   Requires goals.md to exist. Trigger when goals are defined and the user is ready to analyze
   operational pressure.
-  Do NOT use for: defining what the system does (use ec:goals-discovery), mapping system structure
-  (use ec:system-map), or implementation planning (use OpenSpec).
+  Do NOT use for: defining what the system does (use goals-discovery), mapping system structure
+  (use system-map), or implementation planning (use OpenSpec).
 ---
 
 # Dominant Operations Analysis
@@ -40,7 +40,7 @@ Before declaring this skill complete, you MUST produce ALL of the following:
 ## Prerequisites
 
 - **goals.md must exist** and be reviewed by the user
-- If goals.md does not exist, stop and redirect to `ec:goals-discovery`
+- If goals.md does not exist, stop and redirect to `goals-discovery`
 - Read goals.md before starting — you need the goal IDs (Gx) and constraints (Cx) for traceability
 
 ## Workflow

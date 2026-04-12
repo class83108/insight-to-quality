@@ -1,5 +1,5 @@
 ---
-name: ec:align-surface
+name: align-surface
 description: >
   Design or verify surface-layer alignment — user-facing interfaces and infrastructure shaped by
   dominant-ops pressure and constraints. Interfaces include APIs, web UI, CLI, admin panels, SSE
@@ -8,8 +8,8 @@ description: >
   In design mode (no existing code), guide interface and infrastructure design from dominant-ops
   user journeys. In verify mode (existing code), audit coverage and capacity.
   Requires goals.md, dominant-ops.md, and SYSTEM_MAP.md to exist.
-  Do NOT use for: defining goals (use ec:goals-discovery), analyzing pressure (use ec:dominant-ops),
-  mapping system structure (use ec:system-map), or designing contracts/schemas (use ec:align-internals).
+  Do NOT use for: defining goals (use goals-discovery), analyzing pressure (use dominant-ops),
+  mapping system structure (use system-map), or designing contracts/schemas (use align-internals).
 ---
 
 # Align Surface (Interfaces and Infrastructure)

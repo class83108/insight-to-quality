@@ -1,12 +1,12 @@
 ---
-name: ec:goals-discovery
+name: goals-discovery
 description: >
   Guide the creation of goals.md — define what the system must do, must not do, and the constraints
   it operates under. Through structured questioning, help the user produce a goals.md that is stable,
   traceable, and at the correct abstraction level.
   Trigger when the user starts a new project discovery, says "let's define goals", or needs to
   clarify what the system is for.
-  Do NOT use for: dominant operations analysis (use ec:dominant-ops), system mapping (use ec:system-map),
+  Do NOT use for: dominant operations analysis (use dominant-ops), system mapping (use system-map),
   or implementation planning (use OpenSpec).
 ---
 

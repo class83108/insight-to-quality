@@ -1,5 +1,5 @@
 ---
-name: ec:feature-coverage
+name: feature-coverage
 description: >
   Coverage analysis before writing .feature files. Enforces analysis of all 6 scenario
   categories (Applicable / Not applicable with reason) and waits for user confirmation
@@ -7,7 +7,7 @@ description: >
   Trigger when the user wants to start writing .feature files, define test scenarios,
   plan scenarios, or says "coverage analysis".
   Do NOT use for: when .feature files already exist and implementation should begin
-  (use ec:tdd-workflow), during bug fixes, or when simply discussing requirements.
+  (use tdd-workflow), during bug fixes, or when simply discussing requirements.
 ---
 
 # Feature Coverage Analysis
@@ -18,13 +18,13 @@ You are entering the pre-writing step before any .feature file is created. You m
 
 ## Required Outputs
 
-Before handing off to ec:gherkin, you MUST produce ALL of the following. Do not write any Gherkin scenario until every item is confirmed:
+Before handing off to gherkin, you MUST produce ALL of the following. Do not write any Gherkin scenario until every item is confirmed:
 
 - [ ] Feature plan read (Step 0 complete): Error Handling Strategy, Anti-patterns with IDs, Boundary Rules all extracted
 - [ ] Coverage analysis table: all 6 categories addressed with `Yes` or `No + reason` — never blank
 - [ ] Gx completeness check (Step 3): every Gx from the feature plan's Serves field appears at least once in the table
 - [ ] User explicitly confirmed the table (Step 5)
-- [ ] Final sentence stated: "確認後，我將使用 ec:gherkin 撰寫 .feature 檔..."
+- [ ] Final sentence stated: "確認後，我將使用 gherkin 撰寫 .feature 檔..."
 
 **N/A Policy**: `No` in the Applicable column must include a reason. "Not applicable" without a reason is not acceptable output.
 
@@ -35,7 +35,7 @@ Before handing off to ec:gherkin, you MUST produce ALL of the following. Do not 
 Read `docs/feature-plans/{feature-name}.md` (same name as the OpenSpec change).
 
 If no matching feature plan is found:
-→ Stop and inform: "There is no feature plan for this change. Run ec:feature-planning to create one before proceeding with coverage analysis."
+→ Stop and inform: "There is no feature plan for this change. Run feature-planning to create one before proceeding with coverage analysis."
 
 Extract and record the following — these are the analysis entry points for categories 1, 2, and 3:
 
@@ -99,11 +99,11 @@ Present the analysis to the user and explicitly ask:
 
 **Do not start writing any .feature file before the user explicitly confirms.**
 
-The final sentence of your response must clearly state: "Once confirmed, I will use `ec:gherkin` to write the .feature file. After writing, we will proceed to the Verification Ledger (Mock Boundary Review) before writing any tests."
+The final sentence of your response must clearly state: "Once confirmed, I will use `gherkin` to write the .feature file. After writing, we will proceed to the Verification Ledger (Mock Boundary Review) before writing any tests."
 
 ### Step 6: Enter Gherkin Writing
 
-After confirmation, use the ec:gherkin skill to write the .feature file. Ensure every "Applicable" category in the analysis table has at least one corresponding Scenario.
+After confirmation, use the gherkin skill to write the .feature file. Ensure every "Applicable" category in the analysis table has at least one corresponding Scenario.
 
 ## Examples
 
@@ -136,7 +136,7 @@ User says: "Start coverage analysis"
 
 Step 0 cannot find `docs/feature-plans/task-queue.md`.
 
-Correct behavior: "There is no feature plan for this change. Run ec:feature-planning to create one before proceeding with coverage analysis." Do not continue.
+Correct behavior: "There is no feature plan for this change. Run feature-planning to create one before proceeding with coverage analysis." Do not continue.
 
 ### Example 3: User Wants to Skip Analysis and Write Feature Directly
 
@@ -144,7 +144,7 @@ User says: "Just write the .feature for me, skip the analysis."
 
 Correct behavior: Explain the value of coverage analysis, then let the user decide:
 
-1. User insists on skipping → respect the decision, hand off directly to `ec:gherkin`
+1. User insists on skipping → respect the decision, hand off directly to `gherkin`
 2. User accepts the suggestion → begin Step 0, follow the full workflow
 
 ## Notes

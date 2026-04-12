@@ -1,12 +1,12 @@
 ---
-name: ec:pre-complete
+name: pre-complete
 description: >
   Mandatory verification checklist before declaring completion. All verification commands
   must be run and outputs confirmed before saying "done", committing, or creating a PR.
   Prevents declaring completion without actually running verification.
   Trigger when a feature is nearly complete, the user wants to commit, create a PR, or
   says "we're about done".
-  Do NOT use for: intermediate testing during development (that is part of ec:tdd-workflow),
+  Do NOT use for: intermediate testing during development (that is part of tdd-workflow),
   or simply wanting to check current test status.
 ---
 
@@ -85,7 +85,7 @@ If no → fill "no changes" and skip.
 
 ### 6. Integration Test Gaps
 
-Read the `## Integration Test Gaps` section of `docs/feature-plans/{feature-name}.md` (filled in after ec:tdd-workflow Verification Ledger is complete).
+Read the `## Integration Test Gaps` section of `docs/feature-plans/{feature-name}.md` (filled in after tdd-workflow Verification Ledger is complete).
 
 #### 6a. Determine Whether Integration Tests Are Now Due
 

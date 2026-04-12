@@ -1,5 +1,5 @@
 ---
-name: ec:design-review
+name: design-review
 description: >
   Design quality verification after TDD green. Two parts: (1) verify that design decisions
   declared in OpenSpec were followed in implementation; (2) structural checks — separation of
@@ -8,7 +8,7 @@ description: >
   Trigger when the user has completed TDD green, wants a code review, or says "review this"
   or "check the design".
   Do NOT use for: understanding what code does, learning syntax, before TDD green is complete
-  (finish ec:tdd-workflow first), or during bug fixes.
+  (finish tdd-workflow first), or during bug fixes.
 ---
 
 # Design Review

@@ -1,13 +1,13 @@
 ---
-name: ec:system-map
+name: system-map
 description: >
   Guide the creation of SYSTEM_MAP.md — a navigation map for development that synthesizes goals
   and dominant-ops into a Component Map, Boundary Map, and Change Protocol. This is the single
   living document that developers and AI agents consult to understand where things are, what
   depends on what, and what breaks when something changes.
   Requires goals.md and dominant-ops.md to exist.
-  Do NOT use for: defining goals (use ec:goals-discovery), analyzing pressure (use ec:dominant-ops),
-  designing contracts/schemas (use ec:align-internals), or designing interfaces (use ec:align-surface).
+  Do NOT use for: defining goals (use goals-discovery), analyzing pressure (use dominant-ops),
+  designing contracts/schemas (use align-internals), or designing interfaces (use align-surface).
 ---
 
 # System Map
@@ -34,7 +34,7 @@ Before declaring this skill complete, you MUST produce ALL of the following. Do 
 - [ ] Change Protocol covering all 4 types
 - [ ] Phase 7 validation checklist completed (all three checks must pass before writing the document)
 
-**N/A Policy**: Sections that don't yet have content (e.g., Lessons on first creation) must contain a comment explaining why: `<!-- Empty at initial creation — populated by ec:design-review as features are completed -->`. Never silently omit a section.
+**N/A Policy**: Sections that don't yet have content (e.g., Lessons on first creation) must contain a comment explaining why: `<!-- Empty at initial creation — populated by design-review as features are completed -->`. Never silently omit a section.
 
 ## Prerequisites
 
@@ -148,7 +148,7 @@ This section is updated frequently — keep it scannable.
 
 ### Phase 5: Lessons
 
-A lightweight section that captures implementation pitfalls relevant to future work touching the same boundary or component. This section is **not written during initial SYSTEM_MAP creation** — it is populated incrementally by ec:design-review's Lessons Capture step as features are completed.
+A lightweight section that captures implementation pitfalls relevant to future work touching the same boundary or component. This section is **not written during initial SYSTEM_MAP creation** — it is populated incrementally by design-review's Lessons Capture step as features are completed.
 
 Each entry is a one-line summary with a link to the detailed record in the OpenSpec change's decisions. SYSTEM_MAP is the navigator; the OpenSpec change is the source of truth.
 
@@ -238,7 +238,7 @@ If any check reveals a problem → fix it first. Do not write SYSTEM_MAP.md unti
 - **Gaps**: [linked list of known gaps]
 
 ## Lessons
-<!-- Populated by ec:design-review Lessons Capture; empty at initial creation -->
+<!-- Populated by design-review Lessons Capture; empty at initial creation -->
 - [Seam/Component]: [one-line summary] ([openspec/changes/xxx/decisions.md])
 
 ## Change Protocol
