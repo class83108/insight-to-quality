@@ -1,16 +1,16 @@
 {
-  "name": "spec-to-quality",
+  "name": "insight-to-quality",
   "owner": {
     "name": "class83108"
   },
   "metadata": {
-    "description": "Python TDD workflow skills — from spec coverage analysis to quality-gated code, minimizing information loss between requirements and implementation."
+    "description": "Structured software development skills — from architectural discovery through TDD implementation to design review and quality verification."
   },
   "plugins": [
     {
-      "name": "spec-to-quality",
-      "source": "./plugins/spec-to-quality",
-      "description": "Opinionated Python TDD workflow — from spec coverage analysis to quality-gated code, minimizing information loss between requirements and implementation."
+      "name": "insight-to-quality",
+      "source": "./plugins/insight-to-quality",
+      "description": "Structured software development skills — from architectural discovery through TDD implementation to design review and quality verification."
     }
   ]
 }
